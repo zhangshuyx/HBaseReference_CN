@@ -1,0 +1,59 @@
+KeyOnlyFilter
+只保留Key的过滤器
+This filter doesn’t take any arguments. It returns only the key component of each key-value.
+这个过滤器不需要参数，它只返回每个键值对中的key。
+
+FirstKeyOnlyFilter
+只保留第一个键值对的过滤器
+This filter doesn’t take any arguments. It returns only the first key-value from each row.
+这个过滤器不需要参数，它只返回每个行的第一个键值对。
+
+PrefixFilter
+前缀过滤器
+This filter takes one argument – a prefix of a row key. It returns only those key-values present in a row that starts with the specified row prefix
+这个过滤器需要一个参数-rowkey的前缀，它只返回前缀为给定字符串的row的键值对。
+
+ColumnPrefixFilter
+This filter takes one argument – a column prefix. It returns only those key-values present in a column that starts with the specified column prefix. The column prefix must be of the form: “qualifier”.
+
+MultipleColumnPrefixFilter
+This filter takes a list of column prefixes. It returns key-values that are present in a column that starts with any of the specified column prefixes. Each of the column prefixes must be of the form: “qualifier”.
+
+ColumnCountGetFilter
+This filter takes one argument – a limit. It returns the first limit number of columns in the table.
+
+PageFilter
+This filter takes one argument – a page size. It returns page size number of rows from the table.
+
+ColumnPaginationFilter
+This filter takes two arguments – a limit and offset. It returns limit number of columns after offset number of columns. It does this for all the rows.
+
+InclusiveStopFilter
+This filter takes one argument – a row key on which to stop scanning. It returns all key-values present in rows up to and including the specified row.
+
+TimeStampsFilter
+This filter takes a list of timestamps. It returns those key-values whose timestamps matches any of the specified timestamps.
+
+RowFilter
+This filter takes a compare operator and a comparator. It compares each row key with the comparator using the compare operator and if the comparison returns true, it returns all the key-values in that row.
+
+Family Filter
+This filter takes a compare operator and a comparator. It compares each column family name with the comparator using the compare operator and if the comparison returns true, it returns all the Cells in that column family.
+
+QualifierFilter
+This filter takes a compare operator and a comparator. It compares each qualifier name with the comparator using the compare operator and if the comparison returns true, it returns all the key-values in that column.
+
+ValueFilter
+This filter takes a compare operator and a comparator. It compares each value with the comparator using the compare operator and if the comparison returns true, it returns that key-value.
+
+DependentColumnFilter
+This filter takes two arguments – a family and a qualifier. It tries to locate this column in each row and returns all key-values in that row that have the same timestamp. If the row doesn’t contain the specified column – none of the key-values in that row will be returned.
+
+SingleColumnValueFilter
+This filter takes a column family, a qualifier, a compare operator and a comparator. If the specified column is not found – all the columns of that row will be emitted. If the column is found and the comparison with the comparator returns true, all the columns of the row will be emitted. If the condition fails, the row will not be emitted.
+
+SingleColumnValueExcludeFilter
+This filter takes the same arguments and behaves same as SingleColumnValueFilter – however, if the column is found and the condition passes, all the columns of the row will be emitted except for the tested column value.
+
+ColumnRangeFilter
+This filter is used for selecting only those keys with columns that are between minColumn and maxColumn. It also takes two boolean variables to indicate whether to include the minColumn and maxColumn or not.
