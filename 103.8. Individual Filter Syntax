@@ -11,13 +11,17 @@ This filter doesn’t take any arguments. It returns only the first key-value fr
 PrefixFilter
 前缀过滤器
 This filter takes one argument – a prefix of a row key. It returns only those key-values present in a row that starts with the specified row prefix
-这个过滤器需要一个参数-rowkey的前缀，它只返回前缀为给定字符串的row的键值对。
+这个过滤器需要一个参数--rowkey的前缀，它只返回前缀为给定字符串的row的键值对。
 
 ColumnPrefixFilter
+列前缀过滤器
 This filter takes one argument – a column prefix. It returns only those key-values present in a column that starts with the specified column prefix. The column prefix must be of the form: “qualifier”.
+这个过滤器需要一个参数--列前缀，它只返回前缀为给定字符串的列的键值对，列前缀必须以“qualifier”的形式提供。
 
 MultipleColumnPrefixFilter
+多列前缀过滤器
 This filter takes a list of column prefixes. It returns key-values that are present in a column that starts with any of the specified column prefixes. Each of the column prefixes must be of the form: “qualifier”.
+这个过滤器需要一个列前缀的列表，它只返回前缀符合任一指定字符串的列的键值对，且所有列前缀必须以“qualifier”的形式提供。
 
 ColumnCountGetFilter
 This filter takes one argument – a limit. It returns the first limit number of columns in the table.
